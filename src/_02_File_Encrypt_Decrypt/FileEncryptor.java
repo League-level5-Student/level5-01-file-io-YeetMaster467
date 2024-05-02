@@ -25,27 +25,44 @@ public class FileEncryptor {
 	 * Use the key to shift each letter in the users input and save the final result to a file.
 	 */
 	
-	int key = 0;
-	String message = "";
 	
-	public void encrypt() {
+	
+	public static int encrypt() {
 		try {
 			
+			int key = 0;
 			Scanner s = new Scanner(System.in);
 			FileWriter fw = new FileWriter("src/_02_File_Encrypt_Decrypt/encrypted.txt");
 			System.out.println("Enter a message to be encrypted.");
 			String decrypted = s.nextLine().toLowerCase();
 			String encrypted = "";
+			System.out.println("Enter the key");
+			key = s.nextInt();
+			char c;
 			for (int i = 0; i < decrypted.length(); i++) {
+				c = decrypted.charAt(i);
 				if (Character.isAlphabetic(decrypted.charAt(i))) {
 					for (int j = 0; j < key; j++) {
-						
+						c++;
+						if (c == '{') {
+							c = 'a';
+						}
 					}
+					encrypted += c;
+				} else {
+					encrypted += c;
 				}
 			}
 			
+			fw.write(encrypted);
+			fw.close();
+			s.close();
+			
+			return key;
+			
 		} catch (IOException e) {
 			e.printStackTrace();
+			return 0;
 		}
 	}
 }
