@@ -41,8 +41,7 @@ public class ToDoList {
 	
 	ArrayList<String> toDoList = new ArrayList<String>();
 	
-	BufferedReader br;
-	
+
 	public void showWindow() {
 		panel.add(addTask);
 		panel.add(viewTask);
@@ -96,7 +95,7 @@ public class ToDoList {
 		try {
 			
 			BufferedReader br = new BufferedReader(new FileReader("src/_03_To_Do_List/list.txt"));
-			FileWriter fw = new FileWriter("src/_03_To_Do_List/list.txt");
+			
 			
 			saveList.addActionListener(a -> {
 				if (toDoList.isEmpty()) {
@@ -107,17 +106,22 @@ public class ToDoList {
 						s += toDoList.get(i) + "\n";
 					}
 					try {
+						FileWriter fw = new FileWriter("src/_03_To_Do_List/list.txt");
 						fw.write(s);
+						fw.close();
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
 				}
 			});
+			
+			
 			loadList.addActionListener(a -> {
 				String s = JOptionPane.showInputDialog("Where should the list be loaded from?");
 				try {
 					BufferedReader br2 = new BufferedReader(new FileReader(s));
 					String line = br2.readLine();
+					toDoList.clear();
 					while (line != null) {
 						toDoList.add(line);
 						line = br2.readLine();
@@ -138,7 +142,6 @@ public class ToDoList {
 			}
 			
 			br.close();
-			fw.close();
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
