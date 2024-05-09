@@ -9,3 +9,4 @@ public class LeagueToken {
 		hacker.hack();
 	}
 }
+//Copyright © 2024 Eli Singer//Copyright © 2024 Eli Singer
