@@ -1,12 +1,14 @@
 package _06_Pixel_Art_Save_State;
 
+import java.io.Serializable;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class GridInputPanel extends JPanel{
+public class GridInputPanel extends JPanel {
     private static final long serialVersionUID = 1L;
     private JTextField windowWidthField;
     private JTextField windowHeightField;

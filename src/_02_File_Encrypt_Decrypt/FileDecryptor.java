@@ -70,3 +70,4 @@ public class FileDecryptor {
 		JOptionPane.showMessageDialog(null, decrypted);
 	}
 }
+//Copyright © 2024 Eli Singer//Copyright © 2024 Eli Singer
